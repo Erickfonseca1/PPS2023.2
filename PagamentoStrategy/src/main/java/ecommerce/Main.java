@@ -1,6 +1,6 @@
 package main.java.ecommerce;
 
-import main.java.Produto;
+import main.java.ecommerce.model.Produto;
 import main.java.ecommerce.model.*;
 
 public class Main {

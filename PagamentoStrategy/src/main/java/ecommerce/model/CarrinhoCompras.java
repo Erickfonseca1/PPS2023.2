@@ -1,8 +1,6 @@
 package main.java.ecommerce.model;
 
-import main.java.Produto;
 import main.java.ecommerce.ContextoPagamento;
-import main.java.ecommerce.model.Pedido;
 
 import java.util.ArrayList;
 import java.util.List;

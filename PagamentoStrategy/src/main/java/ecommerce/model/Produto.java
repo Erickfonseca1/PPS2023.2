@@ -1,4 +1,4 @@
-package main.java;
+package main.java.ecommerce.model;
 
 public class Produto {
     private String nome;
