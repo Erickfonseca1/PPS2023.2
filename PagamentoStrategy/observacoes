@@ -1,5 +1,44 @@
+Projeto de E-commerce com Padrão Strategy
+
+Este projeto de e-commerce utiliza o padrão de projeto Strategy para permitir que os clientes escolham entre diferentes
+métodos de pagamento (PayPal ou cartão de crédito) ao finalizar uma compra. O objetivo é fornecer uma estrutura flexível
+e extensível para processar pagamentos de acordo com a estratégia escolhida pelo cliente.
+
+Classes Principais:
+
+- Produto: Representa um produto com um nome e um preço.
+- CarrinhoCompras: Mantém uma lista de produtos que o cliente deseja comprar e fornece funcionalidades para calcular o valor total do carrinho e fechar um pedido.
+- Pedido: Representa um pedido, contendo o valor total da compra.
+- PagamentoStrategy: É uma interface que define o contrato para as estratégias de pagamento, com o método efetuarPagamento(double valor).
+- PayPalPaymentStrategy: Implementação da estratégia de pagamento para o PayPal, que requer validação de email e senha antes de efetuar o pagamento.
+- CartaoCreditoPaymentStrategy: Implementação da estratégia de pagamento com cartão de crédito, que exige o número do cartão, a data de expiração e o código de segurança.
+- ContextoPagamento: Esta classe atua como um contexto que recebe uma estratégia de pagamento e a utiliza para processar o pagamento do pedido.
+
+Fluxo de Funcionamento:
+
+1. O cliente adiciona produtos ao carrinho de compras usando a classe CarrinhoCompras.
+
+2. Quando o cliente decide finalizar a compra, o carrinho de compras calcula o valor total da compra usando calcularValorTotal().
+
+3. O cliente escolhe um método de pagamento (PayPal ou cartão de crédito).
+
+4. Com base na escolha do cliente, é criada a estratégia de pagamento correspondente (por exemplo, PayPalPaymentStrategy
+ou CartaoCreditoPaymentStrategy).
+
+5. A estratégia de pagamento é passada para o contexto de pagamento (ContextoPagamento) usando setContextoPagamento().
+
+6. O contexto de pagamento utiliza a estratégia de pagamento para processar o pagamento do pedido chamando processarPagamento().
+
+7. A estratégia de pagamento específica (PayPal ou cartão de crédito) realiza a autenticação ou validação necessária e
+exibe mensagens de sucesso ou falha.
+
+8. O cliente recebe uma mensagem indicando o resultado do pagamento.
+
+Essa estrutura flexível e modular do padrão Strategy permite adicionar facilmente novas estratégias de pagamento no futuro,
+mantendo um baixo acoplamento entre as classes e facilitando a extensibilidade do sistema.
+
 - Criei o PagamentoStrategy como interface pois, como discutido em aula interface proporciona maior flexibilidade e um
 acoplamento mais fraco entre as classes de contexto e as classes de estratégia.
 
-- A classe 'ContextoPagamento' é usada para processar os pagamentos de acordo com a estratégia que escolhi, seguindo
-os conceitos do padrão strategy.
+- A classe 'ContextoPagamento' é usada no main do projeto para processar os pagamentos de acordo com a estratégia que
+escolhi, seguindo os conceitos do padrão strategy.
