@@ -1,0 +1,5 @@
+- Criei o PagamentoStrategy como interface pois, como discutido em aula interface proporciona maior flexibilidade e um
+acoplamento mais fraco entre as classes de contexto e as classes de estratégia.
+
+- A classe 'ContextoPagamento' é usada para processar os pagamentos de acordo com a estratégia que escolhi, seguindo
+os conceitos do padrão strategy.
