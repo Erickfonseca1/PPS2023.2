@@ -1,24 +1,21 @@
 public class Kiosk {
     private KioskState currentState;
-    private Course selectedCourse;
+    private String student;
 
     public Kiosk() {
-        this.currentState = new EmEsperaState();
+        this.currentState = new EmEsperaState(this);
     }
 
-    public void changeState(KioskState newState) {
-        this.currentState = newState;
+    public void changeState() {
+        this.currentState.changeState();
     }
 
-    public void selectCourse(Course course) {
-        currentState.selectCourse(this, course);
+    public KioskState getState() {
+        return this.currentState;
     }
 
-    public void enterCardInfo(String cardInfo) {
-        currentState.enterCardInfo(this, cardInfo);
+    public void setState(KioskState state) {
+        this.currentState = state;
     }
 
-    public void generateTicket() {
-        currentState.generateTicket(this);
-    }
 }

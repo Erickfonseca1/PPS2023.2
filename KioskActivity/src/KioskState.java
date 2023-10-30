@@ -1,5 +1,11 @@
 public interface KioskState {
-    void selectCourse(Kiosk kiosk, Course course);
-    void enterCardInfo(Kiosk kiosk, String cardInfo);
-    void generateTicket(Kiosk kiosk);
+    public void changeState();
+
+    public boolean validateMatricula(String matricula) throws Exception;
+
+    public boolean validateCourse(String course) throws Exception;
+
+    public boolean validateCreditCard(String creditCard) throws Exception;
+
+    public String createTicket() throws Exception;
 }
