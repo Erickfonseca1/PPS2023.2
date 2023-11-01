@@ -10,7 +10,7 @@ public class Student {
     }
 
     public void setStudent(String student) {
-        if (student == null || student.isEmpty()) {
+        if (  student.isEmpty() || student == null ) {
             throw new UnsupportedOperationException("A Matrícula informada é inválida");
         }
         this.student = student;

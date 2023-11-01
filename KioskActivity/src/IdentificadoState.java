@@ -1,15 +1,14 @@
 import java.util.Map;
 
 public class IdentificadoState implements KioskState {
-    private final Kiosk kiosk;
+    private Kiosk kiosk;
 
     public IdentificadoState(Kiosk kiosk) {
         this.kiosk = kiosk;
     }
 
-    @Override
     public void changeState() {
-        kiosk.setState(new InscritoState(kiosk));
+        kiosk.setState(new ProcessandoState(kiosk));
     }
 
     public boolean validateMatricula(String matricula) throws Exception {
@@ -30,6 +29,11 @@ public class IdentificadoState implements KioskState {
 
         if (coursesMap.containsKey(course)) {
             if (coursesMap.get(course).getStudents().size() < coursesMap.get(course).getStudentsCapacity()) {
+                // O aluno reserva uma vaga no curso (não funcionando - não é requisito)
+                kiosk.setCourse(coursesMap.get(course));
+                kiosk.getCourse().addStudent(kiosk.getStudent());
+
+
                 changeState();
                 return true;
             } else {

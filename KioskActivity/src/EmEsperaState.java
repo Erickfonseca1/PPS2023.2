@@ -8,7 +8,7 @@ public class EmEsperaState implements KioskState{
     }
 
     public void changeState() {
-        this.kiosk.setState(new IdentificadoState(kiosk));
+        kiosk.setState(new IdentificadoState(kiosk));
     }
 
     @Override
@@ -45,12 +45,12 @@ public class EmEsperaState implements KioskState{
         if (bankStudents.getStudent(matricula) == null) {
             return false;
         } else if (bankStudents.contains(matricula)) {
+            changeState();
             return true;
         } else {
             return false;
         }
 
-        return true;
     }
 
     public boolean validateCourse(String course) throws Exception {

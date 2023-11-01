@@ -12,12 +12,16 @@ public class Courses {
         this.price = price;
     }
 
+    public double getPrice() {
+        return this.price;
+    }
+
     public String getName() {
         return this.name;
     }
 
-    public double getPrice() {
-        return this.price;
+    public List<String> getStudents() {
+        return this.students;
     }
 
     public int getStudentsCapacity() {
@@ -30,9 +34,5 @@ public class Courses {
             return true;
         }
         return false;
-    }
-
-    public List<String> getStudents() {
-        return this.students;
     }
 }
